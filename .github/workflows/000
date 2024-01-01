@@ -1,0 +1,27 @@
+// 在你的Next.js應用中的某個地方（例如/pages目錄下）創建一個新的JavaScript文件，命名為OrderForm.js
+
+import React from 'react';
+
+class OrderForm extends React.Component {
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData.entries());
+    // 在這裡你可以透過fetch或其他方式將表單數據提交到後端處理
+    console.log(data);
+  };
+
+  render() {
+    return (
+      <div className="container">
+        <h1>歡迎來到我們的餐廳！請點餐：</h1>
+        <form onSubmit={this.handleSubmit}>
+          {/* 這裡放入你的表單元素 */}
+          {/* 注意：在React中使用HTML的className而非class */}
+        </form>
+      </div>
+    );
+  }
+}
+
+export default OrderForm;
